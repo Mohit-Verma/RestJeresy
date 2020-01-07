@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Insert title here</title>
+		<script src="index.js"></script>
+		<link rel="stylesheet" href="index.css">
+    </head>
+<body>
+
+	<form id="database_config_view" onsubmit="testDbConnection(); return false;">
+		<h1>Database Connection</h1>
+		<table>
+			<tr>
+				<td colspan="2"><input type="text" id="dbUrl" name="dbUrl" placeholder="Enter the complete database url" required></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="dbUserName" name="dbUserName" placeholder="DB User Name" required></td>
+				<td><input type="password" id="userPassword" name="userPassword" placeholder="Enter the Password" required></td>
+			</tr>
+			<tr>
+				<td colspan="1"><input type="submit" value="Test Connection"></td>
+			</tr>
+		</table>
+	</form>
+
+	<div id="customer_data_view" style="display: none;">
+		<hr>
+		<h1>Customer Data</h1>
+		<table id="customer_data_table"></table>
+		<input type="button" value="Refresh Data" onclick="fetchCustomers()">
+		<form id="remove_customer" onsubmit="removeCustomer(); return false;" style="display: none;">
+			<input type="number" id="customerIndex" placeholder="Enter custoer Id to delete" required>
+			<input type="submit" value="Remove">
+		</form>
+		
+	</div>
+
+	<form id="add_customer_instance" onsubmit="submitData(); return false;" style="display: none;">
+		<hr>
+		<h1>Add New Customer</h1>
+		<table>
+			<tr>
+				<td><input type="text" id="firstName" name="firstName" placeholder="First Name" required></td>
+				<td><input type="text" id="lastName" name="lastName" placeholder="Last Name"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="text" id="email" name="email" placeholder="Email" required></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="text" id="address" name="address" placeholder="Address" required></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="city" name="city" placeholder="City" required></td>
+				<td><input type="text" id="state" name="state" placeholder="State" required></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="country" name="country" placeholder="Country" required></td>
+				<td><input type="number" id="pin" name="pin" placeholder="Pin" required></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Add Customer"></td>
+			</tr>
+		</table>
+	</form>
+
+    <div id="log">
+		<hr>
+		<h3>Message from server</h3>
+		<div id="message"></div>
+	</div>
+
+</body>
+</html>
